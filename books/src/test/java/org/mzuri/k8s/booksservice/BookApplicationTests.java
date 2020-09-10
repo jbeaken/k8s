@@ -1,4 +1,4 @@
-package org.mzuri.k8s.booksservice;
+package org.mzuri.k8s.book;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
