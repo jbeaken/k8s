@@ -1,0 +1,11 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: pods-must-have-labels-gatekeeper
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pods"]
+  parameters:
+    labels: ["gatekeeper"]
