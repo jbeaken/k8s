@@ -1,0 +1,26 @@
+apiVersion: skaffold/v2beta10
+kind: Config
+metadata:
+  name: book-service
+build:
+  artifacts:
+    - image: mzuri/book-service
+      buildpacks:
+        builder: paketobuildpacks/builder:base
+  tagPolicy:
+    gitCommit: {}
+deploy:
+  helm:
+    releases:
+    - name: gateway
+      chartPath: gatekeeper/gatekeeper
+      remote: true
+      recreatePods: true
+      valuesFiles:
+        - k8s/helm/opa/values.yaml
+  kubectl:
+    manifests:
+      - k8s/deployment.yaml
+      - k8s/service.yaml
+      - k8s/opa/k8srequiredlabels.yaml
+      - k8s/opa/constraint-required-labels.yaml
