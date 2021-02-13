@@ -22,5 +22,6 @@ deploy:
     manifests:
       - k8s/deployment.yaml
       - k8s/service.yaml
-      - k8s/opa/k8srequiredlabels.yaml
-      - k8s/opa/constraint-required-labels.yaml
+      - k8s/opa/templates/k8srequiredlabels_template.yaml
+      - k8s/opa/templates/k8srequiredlabels_template_external_data.yaml
+      - k8s/opa/templates/k8suniquelabel_template.yaml
